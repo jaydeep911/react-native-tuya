@@ -4,7 +4,7 @@ apply plugin: 'maven-publish'
 
 
 buildscript {
-    ext.kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : '1.6.0'
+    ext.kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : '1.9.24'
     repositories {
 
         maven{url 'https://maven.aliyun.com/nexus/content/groups/public/'}
@@ -13,8 +13,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // classpath 'com.android.tools.build:gradle:7.3.1'
+        // classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -53,7 +53,7 @@ dependencies {
     // The latest stable App SDK for Android.
     implementation 'com.squareup.okhttp3:okhttp-urlconnection:4.11.0'
     implementation 'com.facebook.soloader:soloader:0.10.5'
-    implementation 'com.thingclips.smart:thingsmart:5.11.3'
+    implementation 'com.thingclips.smart:thingsmart:5.17.0'
 }
 repositories {
     maven {

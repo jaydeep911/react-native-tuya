@@ -206,7 +206,11 @@ class TuyaActivatorModule(reactContext: ReactApplicationContext) :
           }
 
           override fun onFailure(errorCode: String?, errorMsg: String?) {
-            promise.reject(errorCode, errorMsg);
+            val nonNullableerrorMsg: String = errorMsg ?: ""
+            val nonNullablerrorCode: String = errorCode ?: ""
+
+
+            promise.reject(nonNullablerrorCode, nonNullableerrorMsg);
           }
         })
     }
@@ -224,9 +228,9 @@ class TuyaActivatorModule(reactContext: ReactApplicationContext) :
             promise.resolve(TuyaReactUtils.parseToWritableMap(devResp));
           }
 
-          override fun onQRCodeSuccess(qrcodeUrl: String?) {}
+          override fun onQRCodeSuccess(qrcodeUrl: String) {}
 
-          override fun onError(errorCode: String?, errorMsg: String?) {
+          override fun onError(errorCode: String, errorMsg: String) {
             promise.reject(errorCode, errorMsg);
           }
         });
